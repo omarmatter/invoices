@@ -49,17 +49,10 @@
                                             <thead>
                                                 <tr>
                                                     <th class="border-bottom-0">#</th>
-                                                    <th class="border-bottom-0">رقم الفاتورة</th>
-                                                    <th class="border-bottom-0">تاريخ الفاتورة</th>
-                                                    <th class="border-bottom-0">تاريخ الاستحقاق</th>
-                                                    <th class="border-bottom-0">المنتج </th>
-                                                    <th class="border-bottom-0">القسم</th>
-                                                    <th class="border-bottom-0">الخصم</th>
-                                                    <th class="border-bottom-0">نسبة الضريبة</th>
-                                                    <th class="border-bottom-0">قيمة الضريبة</th>
-                                                    <th class="border-bottom-0"> الإجمالي</th>
-                                                    <th class="border-bottom-0"> الحاالة </th>
-                                                    <th class="border-bottom-0"> ملاحظات </th>
+                                                    <th class="border-bottom-0">اسم المنتج </th>
+                                                    <th class="border-bottom-0"> اسم القسم</th>
+                                                    <th class="border-bottom-0"> ملاحظات</th>
+                                                    <th class="border-bottom-0">العمليات </th>
 
 
                                                 </tr>
@@ -72,14 +65,7 @@
                                                     <td>New York</td>
                                                     <td>27</td>
                                                     <td>2011/01/25</td>
-                                                    <td>$112,000</td>
-
-                                                    <td>Donna Snider</td>
-                                                    <td>Customer Support</td>
-                                                    <td>New York</td>
-                                                    <td>27</td>
-                                                    <td>2011/01/25</td>
-                                                    <td>$112,000</td>
+                                                 
                                                 </tr>
                                             </tbody>
                                         </table>
