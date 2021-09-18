@@ -16,17 +16,35 @@
 			<img src="{{URL::asset('assets/img/loader.svg')}}" class="loader-img" alt="Loader">
 		</div>
 		<!-- /Loader -->
-		@include('layouts.main-sidebar')		
+		@include('layouts.main-sidebar')
 		<!-- main-content -->
 		<div class="main-content app-content">
-			@include('layouts.main-header')			
+			@include('layouts.main-header')
 			<!-- container -->
 			<div class="container-fluid">
 				@yield('page-header')
+                @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session()->get('success') }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 				@yield('content')
 				@include('layouts.sidebar')
 				@include('layouts.models')
             	@include('layouts.footer')
-				@include('layouts.footer-scripts')	
+				@include('layouts.footer-scripts')
 	</body>
 </html>
