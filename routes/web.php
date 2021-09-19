@@ -23,5 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('invoices', 'invoicesController');
 Route::resource('sections', 'sectionsController');
 Route::resource('products', 'productController');
-
+Route::get('/section/{id}', 'InvoicesController@getproducts');
+    
 Route::get('/{page}','AdminController@index');
