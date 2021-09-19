@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\product;
+use App\sections;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.product');
+        $sections=sections::all();
+        $products = product::all();
+        return view('products.product',compact('sections','products'));
     }
 
     /**
@@ -35,7 +38,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        product::create([
+            'Product_name' => $request->Product_name,
+            'section_id' => $request->section_id,
+            'description' => $request->description,
+        ]);
+        session()->flash('success', 'تم اضافة المنتج بنجاح ');
+        return redirect('/products');
     }
 
     /**
@@ -67,9 +76,22 @@ class ProductController extends Controller
      * @param  \App\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request)
     {
-        //
+
+
+        $id = sections::where('section_name', $request->section_name)->first()->id;
+
+        $Products = product::findOrFail($request->pro_id);
+
+        $Products->update([
+        'Product_name' => $request->Product_name,
+        'description' => $request->description,
+        'section_id' => $id,
+        ]);
+
+        session()->flash('success', 'تم تعديل المنتج بنجاح');
+        return back();
     }
 
     /**
@@ -78,8 +100,11 @@ class ProductController extends Controller
      * @param  \App\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(product $product)
+    public function destroy(Request $request)
     {
-        //
+        $Products = product::findOrFail($request->pro_id);
+        $Products->delete();
+        session()->flash('success', 'تم حذف المنتج بنجاح');
+        return back();
     }
 }
