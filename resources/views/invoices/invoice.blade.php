@@ -74,7 +74,9 @@
                                                     <td>{{$invoice->invoice_Date}}</td>
                                                     <td>{{$invoice->Due_date}}</td>
                                                     <td>{{$invoice->product}}</td>
-                                                    <td>{{$invoice->section->section_name}}</td>
+                                                    <td><a
+                                                        href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">{{ $invoice->section->section_name }}</a>
+                                                </td>
                                                     <td>{{$invoice->Discount}}</td>
                                                     <td>{{$invoice->Rate_VAT}}</td>
                                                     <td>{{$invoice->Value_VAT}}</td>
