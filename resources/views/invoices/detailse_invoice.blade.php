@@ -304,7 +304,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('delete_fileتت')}}" method="post">
+                <form action="{{route('delete_file')}}" method="post">
 
                     {{ csrf_field() }}
                     <div class="modal-body">

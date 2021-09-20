@@ -33,4 +33,13 @@ Route::get('View_file/{invoice_number}/{file_name}', 'InvoicesDetailsController@
 
 Route::post('delete_file', 'InvoicesDetailsController@destroy')->name('delete_file');
 
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+    Route::resource('products','ProductController');
+    });
+
+
+
 Route::get('/{page}','AdminController@index');
