@@ -47,40 +47,53 @@
                                     <div class="table-responsive">
                                         <table id="example1" class="table key-buttons text-md-nowrap">
                                             <thead>
-                                                <tr>
-                                                    <th class="border-bottom-0">#</th>
-                                                    <th class="border-bottom-0">رقم الفاتورة</th>
-                                                    <th class="border-bottom-0">تاريخ الفاتورة</th>
-                                                    <th class="border-bottom-0">تاريخ الاستحقاق</th>
-                                                    <th class="border-bottom-0">المنتج </th>
-                                                    <th class="border-bottom-0">القسم</th>
-                                                    <th class="border-bottom-0">الخصم</th>
-                                                    <th class="border-bottom-0">نسبة الضريبة</th>
-                                                    <th class="border-bottom-0">قيمة الضريبة</th>
-                                                    <th class="border-bottom-0"> الإجمالي</th>
-                                                    <th class="border-bottom-0"> الحاالة </th>
-                                                    <th class="border-bottom-0"> ملاحظات </th>
+
+                                        <tr>
+                                            <th class="border-bottom-0">#</th>
+                                            <th class="border-bottom-0">رقم الفاتورة</th>
+                                            <th class="border-bottom-0">تاريخ الفاتورة</th>
+                                            <th class="border-bottom-0">تاريخ الاستحقاق</th>
+                                            <th class="border-bottom-0">المنتج </th>
+                                            <th class="border-bottom-0">القسم</th>
+                                            <th class="border-bottom-0">الخصم</th>
+                                            <th class="border-bottom-0">نسبة الضريبة</th>
+                                            <th class="border-bottom-0">قيمة الضريبة</th>
+                                            <th class="border-bottom-0"> الإجمالي</th>
+                                            <th class="border-bottom-0"> الحاالة </th>
+                                            <th class="border-bottom-0"> ملاحظات </th>
 
 
-                                                </tr>
+                                        </tr>
+
                                             </thead>
                                             <tbody>
-
+                                                @foreach ($invoices as $invoice )
                                                 <tr>
-                                                    <td>Donna Snider</td>
-                                                    <td>Customer Support</td>
-                                                    <td>New York</td>
-                                                    <td>27</td>
-                                                    <td>2011/01/25</td>
-                                                    <td>$112,000</td>
+                                                    <td>{{$loop->index}}</td>
+                                                    <td>{{$invoice->invoice_number}}</td>
+                                                    <td>{{$invoice->invoice_Date}}</td>
+                                                    <td>{{$invoice->Due_date}}</td>
+                                                    <td>{{$invoice->product}}</td>
+                                                    <td>{{$invoice->section->section_name}}</td>
+                                                    <td>{{$invoice->Discount}}</td>
+                                                    <td>{{$invoice->Rate_VAT}}</td>
+                                                    <td>{{$invoice->Value_VAT}}</td>
+                                                    <td>{{$invoice->Total}}</td>
+                                                    <td>
+                                                        @if ($invoice->Value_Status == 1)
+                                                            <span class="text-success">{{ $invoice->Status }}</span>
+                                                        @elseif($invoice->Value_Status == 2)
+                                                            <span class="text-danger">{{ $invoice->Status }}</span>
+                                                        @else
+                                                            <span class="text-warning">{{ $invoice->Status }}</span>
+                                                        @endif
 
-                                                    <td>Donna Snider</td>
-                                                    <td>Customer Support</td>
-                                                    <td>New York</td>
-                                                    <td>27</td>
-                                                    <td>2011/01/25</td>
-                                                    <td>$112,000</td>
+                                                    </td>
+                                                    <td>{{$invoice->note}}</td>
+
+
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
