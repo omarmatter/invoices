@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('css')
 <!-- Internal Select2 css -->
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 <!--Internal  Datetimepicker-slider css -->
 <link href="{{URL::asset('assets/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css')}}" rel="stylesheet">
@@ -566,7 +566,27 @@
 										</select>
 									</div><!-- col-4 -->
 									<div class="col-lg-4 mg-t-20 mg-lg-t-0">
-										<p class="mg-b-10">Single Select with Search</p><select class="form-control select2">
+										<p class="mg-b-10">Single Select with Search</p>
+                                        {{-- <select class="form-control select2">
+											<option label="Choose one">
+											</option>
+											<option value="Firefox">
+												Firefox
+											</option>
+											<option value="Chrome">
+												Chrome
+											</option>
+											<option value="Safari">
+												Safari
+											</option>
+											<option value="Opera">
+												Opera
+											</option>
+											<option value="Internet Explorer">
+												Internet Explorer
+											</option>
+										</select> --}}
+                                        <select class="form-control select2">
 											<option label="Choose one">
 											</option>
 											<option value="Firefox">

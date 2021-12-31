@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class HomeController extends Controller
 {
     /**
@@ -11,9 +12,12 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+
     public function __construct()
     {
-        $this->middleware('auth');
+
+        // $this->middleware('auth');
     }
 
     /**
@@ -25,4 +29,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function test(){
+        $pay = new Pay();
+$x= $pay-> processMerchantPageResponse();
+dd($x);
+    }
 }
+
+

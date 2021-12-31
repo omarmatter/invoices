@@ -38,7 +38,7 @@ class InvoicesAttachmentsController extends Controller
     {
         $this->validate($request, [
 
-            'file_name' => 'mimes:pdf,jpeg,png,jpg',
+            'file_name' => 'mimes:pdf,jpeg,png,jpg | unique:table,column,except,id',
 
             ], [
                 'file_name.mimes' => 'صيغة المرفق يجب ان تكون   pdf, jpeg , png , jpg',
